@@ -2,12 +2,13 @@
 
 namespace App\Game;
 
+use App\Interfaces\Game\Stringable;
 use App\Interfaces\Game\WordLetter;
 use App\Interfaces\Nullable;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
 
-class HiddenWordLetter implements WordLetter, Nullable
+class HiddenWordLetter implements WordLetter, Nullable, Stringable
 {
     /** @var string */
     protected $letter;
@@ -33,19 +34,22 @@ class HiddenWordLetter implements WordLetter, Nullable
      */
     public function isNull()
     {
-        false;
+        return false;
     }
 
+    /**
+     * @return string
+     */
     public function toString()
     {
         return $this->letter;
     }
 
     /**
-     * @param WordLetter $letter
+     * @param Stringable $letter
      * @return bool
      */
-    public function isEqual(WordLetter $letter)
+    public function isEqual(Stringable $letter)
     {
         return hash_equals($this->letter, $letter->toString());
     }

@@ -5,13 +5,8 @@ namespace App\Interfaces\Game;
 interface WordLetter
 {
     /**
+     * @param Stringable $letter
      * @return bool
      */
-    public function toString();
-
-    /**
-     * @param WordLetter $letter
-     * @return bool
-     */
-    public function isEqual(WordLetter $letter);
+    public function isEqual(Stringable $letter);
 }

@@ -3,12 +3,13 @@
 namespace App\Game;
 
 use App\Interfaces\Game\GuessableWord;
+use App\Interfaces\Game\Stringable;
 use App\Interfaces\Game\WordLetter;
 use App\Interfaces\Nullable;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
 
-class HiddenWord implements GuessableWord
+class HiddenWord implements GuessableWord, Stringable
 {
     /** @var string */
     protected $word;
@@ -41,11 +42,35 @@ class HiddenWord implements GuessableWord
     }
 
     /**
-     * @return WordLetter[]
+     * @return bool
+     */
+    public function isOpen()
+    {
+        return $this->isOpen;
+    }
+
+    /**
+     * @return string
+     */
+    public function toString()
+    {
+        return $this->word;
+    }
+
+    /**
+     * @return WordLetter[]|Stringable[]
      */
     public function getCurrentLetters()
     {
         return $this->currentLetters;
+    }
+
+    /**
+     * @return WordLetter[]|Stringable[]
+     */
+    public function getAllLetters()
+    {
+        return $this->allLetters;
     }
 
     /**
@@ -128,13 +153,5 @@ class HiddenWord implements GuessableWord
 
             $this->currentLetters[] = $hiddenLetter;
         }
-    }
-
-    /**
-     * @return bool
-     */
-    public function isOpen()
-    {
-        return $this->isOpen;
     }
 }

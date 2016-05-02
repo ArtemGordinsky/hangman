@@ -2,10 +2,11 @@
 
 namespace App\Game;
 
+use App\Interfaces\Game\Stringable;
 use App\Interfaces\Game\WordLetter;
 use App\Interfaces\Nullable;
 
-class NullHiddenWordLetter implements WordLetter, Nullable
+class NullHiddenWordLetter implements WordLetter, Nullable, Stringable
 {
     public function __construct()
     {
@@ -19,16 +20,19 @@ class NullHiddenWordLetter implements WordLetter, Nullable
         return true;
     }
 
+    /**
+     * @return string
+     */
     public function toString()
     {
         return '';
     }
 
     /**
-     * @letter WordLetter
+     * @letter Stringable
      * @return bool
      */
-    public function isEqual(WordLetter $letter)
+    public function isEqual(Stringable $letter)
     {
         return false;
     }
