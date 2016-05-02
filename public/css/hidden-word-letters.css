@@ -1,0 +1,17 @@
+.hidden-word-letter {
+    display: inline-block;
+    width: 35px;
+    height: 50px;
+    margin-left: 15px;
+    color: #222222;
+    font-size: 35px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Vast Shadow', Helvetica;
+    vertical-align: bottom;
+    border-bottom: 3px solid black;
+}
+
+.hidden-word-letter:first-of-type {
+    margin-left: 0;
+}

@@ -1,0 +1,13 @@
+.player-lives {
+    padding: 15px;
+    font-size: 15px;
+}
+
+.player-lives-heart {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.player-lives-heart.fa-heart {
+    color: #CE4844;
+}
